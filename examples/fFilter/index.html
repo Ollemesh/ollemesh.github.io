@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://use.fontawesome.com/5e0e18a117.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<script src="http://vk.com/js/api/openapi.js" type="text/javascript"></script>  
+</head>
+<body>
+	<div class="logo"></div>
+	<div class="window">
+		<div class="window_title-bar">
+			<h3 class="title-bar_title">Выберите друзей</h3>
+			<div class="title-bar_close-button icon"><i class="fa fa-times" aria-hidden="true"></i></div>
+		</div>
+		<div class="window_search-bar">
+			<div class="search-bar_left column">
+				<input type="text" id="leftSearchField" class="search-bar_field" placeholder="Начните вводить имя друга">
+				<i class="fa fa-search icon" aria-hidden="true"></i>
+			</div>
+			<div class="search-bar_right column">
+				<input type="text" id="rightSearchField" class="search-bar_field" placeholder="Название">
+			</div>
+		</div>
+		<div class="window_content clearfix">
+			<div class="window_left-column column">
+				<div class="left-column_title title">
+					Ваши друзья
+				</div>
+				<ul class="left-column_list list" id="leftContainer"></ul>
+			</div>
+			<div class="window_right-column column">
+				<div class="right-column_title title">
+					Друзья в списке
+				</div>
+				<ul class="right-column_list list" id="rightContainer"></ul>
+			</div>
+		</div>
+		<div class="window_save-pannel">
+			<button class="save-pannel_button" id="save">Сохранить</button>
+		</div>
+	</div>
+
+	<script id="friendPostTemplate" type="text/x-handlebars-template">
+		{{#each list}}
+			<li class="friendItem" data-vk-id="{{user_id}}">
+				<img class="friendItem_photo" src="{{photo_100}}" alt="photo">
+				<div class="friendItem_name">{{first_name}} {{last_name}}</div>
+				<div class="friendItem_button icon" data-button="1"></div>
+			</li>
+		{{/each}}
+	</script>
+
+	<script src="script.js"></script>
+	<link href="style.css" rel="stylesheet">
+</body>
+
+</html>
